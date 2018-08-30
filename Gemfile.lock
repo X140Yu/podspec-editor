@@ -50,12 +50,14 @@ GEM
     colored2 (3.1.2)
     concurrent-ruby (1.0.5)
     diff-lcs (1.3)
+    docile (1.3.1)
     escape (0.0.4)
     fourflusher (2.0.1)
     fuzzy_match (2.0.4)
     gh_inspector (1.1.3)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
+    json (2.1.0)
     minitest (5.11.3)
     molinillo (0.6.6)
     nanaimo (0.2.6)
@@ -76,6 +78,11 @@ GEM
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
     ruby-macho (1.2.0)
+    simplecov (0.16.1)
+      docile (~> 1.1)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
@@ -95,6 +102,7 @@ DEPENDENCIES
   podspec-editor!
   rake (~> 10.0)
   rspec (~> 3.0)
+  simplecov
 
 BUNDLED WITH
    1.16.1
