@@ -1,8 +1,8 @@
 require "bundler/setup"
 require "podspec/editor"
 
-require 'simplecov'
-SimpleCov.start
+require 'coveralls'
+Coveralls.wear!
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
