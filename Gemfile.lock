@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    podspec_editor (0.3.0)
+    podspec_editor (0.4.0)
+      cocoapods (~> 1.5)
 
 GEM
   remote: https://rubygems.org/
@@ -108,11 +109,10 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.16)
-  cocoapods (~> 1.5)
   coveralls
   podspec_editor!
   rake (~> 10.0)
   rspec (~> 3.0)
 
 BUNDLED WITH
-   1.16.1
+   1.16.4

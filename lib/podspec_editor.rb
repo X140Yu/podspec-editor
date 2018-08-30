@@ -2,6 +2,7 @@ require 'podspec_editor/version'
 require 'pathname'
 require 'ostruct'
 require 'json'
+require 'cocoapods'
 
 module PodspecEditor
   class Helper
