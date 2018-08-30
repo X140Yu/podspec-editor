@@ -9,7 +9,7 @@ RSpec.describe Podspec::Editor do
     File.read(File.expand_path('fixtures/A.podspec.json', __dir__))
   end
 
-  def generate_normal_editer
+  def generate_normal_editor
     PodspecEditor::Editor.new(
       json_path: File.expand_path('fixtures/A.podspec.json', __dir__)
     )
@@ -22,15 +22,15 @@ RSpec.describe Podspec::Editor do
       end
 
       it 'initialize with a json path will not raise error' do
-        editer = generate_normal_editer
-        expect(editer.origin_json_content).to eq(origin_json_content)
+        editor = generate_normal_editor
+        expect(editor.origin_json_content).to eq(origin_json_content)
       end
 
       it 'initialize with a spec path will not raise error' do
-        editer = PodspecEditor::Editor.new(
+        editor = PodspecEditor::Editor.new(
           spec_path: File.expand_path('fixtures/A.podspec', __dir__)
         )
-        expect(editer.origin_json_content).to eq(origin_json_content)
+        expect(editor.origin_json_content).to eq(origin_json_content)
       end
     end
 
@@ -40,16 +40,16 @@ RSpec.describe Podspec::Editor do
     end
 
     it 'get value from spec' do
-      editer = generate_normal_editer
+      editor = generate_normal_editor
       kvs = [
-        editer.spec.name => 'TestPod',
-        editer.spec.version => '1.0.0',
-        editer.spec.license => 'MIT',
-        editer.spec.requires_arc => true,
-        editer.spec.key_not_exist => nil,
-        editer.spec.authors => OpenStruct.new('test' => 'test@test.com'),
-        editer.spec.subspecs[0].name => 'SubSpecA',
-        editer.spec.subspecs[0].dependencies => OpenStruct.new('Masonry': [], 'ReactiveObjC': [], 'SDWebImage': [])
+        editor.spec.name => 'TestPod',
+        editor.spec.version => '1.0.0',
+        editor.spec.license => 'MIT',
+        editor.spec.requires_arc => true,
+        editor.spec.key_not_exist => nil,
+        editor.spec.authors => OpenStruct.new('test' => 'test@test.com'),
+        editor.spec.subspecs[0].name => 'SubSpecA',
+        editor.spec.subspecs[0].dependencies => OpenStruct.new('Masonry': [], 'ReactiveObjC': [], 'SDWebImage': [])
       ]
       kvs.each do |kv|
         kv.each do |k, v|
@@ -60,76 +60,76 @@ RSpec.describe Podspec::Editor do
 
     describe 'delete value from spec' do
       before :context do
-        @editer = generate_normal_editer
+        @editor = generate_normal_editor
       end
 
       it 'delete normal key' do
-        @editer.spec.name = nil
-        expect(@editer.spec.name).to eq(nil)
+        @editor.spec.name = nil
+        expect(@editor.spec.name).to eq(nil)
 
-        @editer.spec.authors = nil
-        expect(@editer.spec.authors).to eq(nil)
+        @editor.spec.authors = nil
+        expect(@editor.spec.authors).to eq(nil)
       end
 
       it 'delete non-exist key' do
-        @editer.spec.key_not_exist = nil
-        expect(@editer.spec.key_not_exist).to eq(nil)
+        @editor.spec.key_not_exist = nil
+        expect(@editor.spec.key_not_exist).to eq(nil)
       end
 
       it 'delete nested key' do
-        @editer.spec.subspecs[0].source_files = nil
-        expect(@editer.spec.subspecs[0].source_files).to eq(nil)
+        @editor.spec.subspecs[0].source_files = nil
+        expect(@editor.spec.subspecs[0].source_files).to eq(nil)
       end
     end
 
     describe 'update value from spec' do
       before :context do
-        @editer = generate_normal_editer
+        @editor = generate_normal_editor
       end
 
       it 'update first level key' do
-        expect(@editer.spec.name).to eq('TestPod')
+        expect(@editor.spec.name).to eq('TestPod')
         new_name = 'NewTestPod'
-        @editer.spec.name = new_name
-        expect(@editer.spec.name).to eq(new_name)
+        @editor.spec.name = new_name
+        expect(@editor.spec.name).to eq(new_name)
       end
 
       it 'update nested key' do
-        expect(@editer.spec.subspecs[0].name).to eq('SubSpecA')
+        expect(@editor.spec.subspecs[0].name).to eq('SubSpecA')
         new_name = 'newNameA'
-        @editer.spec.subspecs[0].name = new_name
-        expect(@editer.spec.subspecs[0].name).to eq(new_name)
+        @editor.spec.subspecs[0].name = new_name
+        expect(@editor.spec.subspecs[0].name).to eq(new_name)
 
         new_source_files = ['A.h']
-        @editer.spec.subspecs[0].source_files = new_source_files
-        expect(@editer.spec.subspecs[0].source_files).to eq(new_source_files)
+        @editor.spec.subspecs[0].source_files = new_source_files
+        expect(@editor.spec.subspecs[0].source_files).to eq(new_source_files)
       end
 
       it 'update invalid key will add new key to spec' do
-        expect(@editer.spec.invlid_key).to eq(nil)
+        expect(@editor.spec.invlid_key).to eq(nil)
         new_value = 'value'
-        @editer.spec.invlid_key = new_value
-        expect(@editer.spec.invlid_key).to eq(new_value)
+        @editor.spec.invlid_key = new_value
+        expect(@editor.spec.invlid_key).to eq(new_value)
       end
     end
 
     describe 'generate json content' do
       before :context do
-        @editer = generate_normal_editer
+        @editor = generate_normal_editor
       end
 
       it 'current json content' do
-        expect(@editer.current_json_content).to eq(origin_json_content)
+        expect(@editor.current_json_content).to eq(origin_json_content)
       end
 
       it 'update value then generate json' do
-        @editer.spec.name = 'NewTestPod'
+        @editor.spec.name = 'NewTestPod'
         new_dependencies = OpenStruct.new('Masonry' => [])
-        @editer.spec.subspecs[0].dependencies = new_dependencies
-        expect(@editer.spec.subspecs[0].dependencies).to eq(new_dependencies)
+        @editor.spec.subspecs[0].dependencies = new_dependencies
+        expect(@editor.spec.subspecs[0].dependencies).to eq(new_dependencies)
 
         new_json_content = File.read(File.expand_path('fixtures/A_t.podspec.json', __dir__)).chomp
-        expect(@editer.current_json_content).to eq(new_json_content)
+        expect(@editor.current_json_content).to eq(new_json_content)
       end
     end
   end
