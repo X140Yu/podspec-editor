@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    podspec_editor (0.2.0)
+    podspec_editor (0.3.0)
 
 GEM
   remote: https://rubygems.org/
