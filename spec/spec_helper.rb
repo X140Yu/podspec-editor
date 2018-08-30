@@ -1,8 +1,8 @@
-require "bundler/setup"
-require "podspec/editor"
-
 require 'coveralls'
 Coveralls.wear!
+
+require 'bundler/setup'
+require 'podspec/editor'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
