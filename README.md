@@ -1,5 +1,7 @@
 # podspec-editor
 
+[![Build Status](https://travis-ci.org/X140Yu/podspec-editor.svg?branch=master)](https://travis-ci.org/X140Yu/podspec-editor)
+
 💎 A ruby gem which can edit [podspec](https://guides.cocoapods.org/syntax/podspec.html).
 
 
