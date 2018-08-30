@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'podspec/editor/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'podspec-editor'
+  spec.name          = 'podspec_editor'
   spec.version       = Podspec::Editor::VERSION
   spec.authors       = ['X140Yu']
   spec.email         = ['zhaoxinyu1994@gmail.com']
