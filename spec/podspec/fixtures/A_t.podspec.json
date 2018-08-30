@@ -1,0 +1,87 @@
+{
+  "name": "NewTestPod",
+  "version": "1.0.0",
+  "summary": "TestPod summary",
+  "license": "MIT",
+  "authors": {
+    "test": "test@test.com"
+  },
+  "homepage": "https://www.example.com",
+  "source": {
+    "git": "https://test@test.git",
+    "tag": "#{s.version}"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "public_header_files": "Classes/Public/**/*.h",
+  "source_files": "Classes/Sources/**/*.{h,m,swift,mm}",
+  "subspecs": [
+    {
+      "name": "SubSpecA",
+      "private_header_files": "Classes/A/Private/**/*.{swift,h,m,mm}",
+      "source_files": [
+        "Classes/A/API/**/*.{swift,h,m,c,mm}",
+        "Classes/A/Private/DebugUI/*.{swift,h,m,c,mm}",
+        "Classes/A/Private/Tab/**/*.{swift,h,m,c,mm}",
+        "Resources/**/*.{h,m}"
+      ],
+      "resources": [
+        "Resources/**/*.strings",
+        "Resources/**/*.bundle"
+      ],
+      "dependencies": {
+        "Masonry": [
+
+        ]
+      }
+    },
+    {
+      "name": "SubSpecB",
+      "private_header_files": "Classes/B/Private/**/*.{h,m,mm}",
+      "source_files": [
+        "Classes/B/**/*.{swift,h,m,c,mm}",
+        "Resources/B/**/*.{h,m}"
+      ],
+      "resources": [
+        "Resources/B/**/*.strings",
+        "Resources/B/**/*.bundle"
+      ],
+      "dependencies": {
+        "TestPod/A": [
+
+        ],
+        "Masonry": [
+
+        ],
+        "ReactiveObjC": [
+
+        ]
+      }
+    },
+    {
+      "name": "SubSpecC",
+      "private_header_files": "Classes/C/Basic/C.h",
+      "source_files": [
+        "Classes/C/**/*.{swift,h,m,c,mm}",
+        "Resources/C/**/*.{h,m}"
+      ],
+      "resources": [
+        "Resources/C/**/*.strings",
+        "Resources/C/**/*.bundle"
+      ],
+      "dependencies": {
+        "TestPod/A": [
+
+        ],
+        "Masonry": [
+
+        ],
+        "ReactiveObjC": [
+
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "POD_NAME",
+  "version": "1.0.0",
+  "summary": "TestPod summary",
+  "license": "MIT",
+  "authors": {
+    "test": "test@test.com"
+  },
+  "homepage": "https://www.example.com",
+  "platforms": {
+    "ios": "9.0"
+  }
+}
