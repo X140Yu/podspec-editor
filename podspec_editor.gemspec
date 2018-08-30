@@ -1,6 +1,6 @@
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'podspec/editor/version'
+require 'podspec_editor/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'podspec_editor'

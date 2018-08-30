@@ -8,7 +8,7 @@
 
 ## Installation
 
-🤣 Will be added later
+    $ gem install podspec_editor
 
 ## Usage
 
@@ -38,7 +38,7 @@ editor.spec.subspecs[0].source_files = new_source_files = ['A.h']
 editor.current_json_content
 ```
 
-See `spec/podspec/editor_spec.rb` for more usage examples.
+See `spec/podspec_editor/editor_spec.rb` for more usage examples.
 
 ## License
 

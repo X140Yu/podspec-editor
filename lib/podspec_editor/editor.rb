@@ -1,4 +1,4 @@
-require 'podspec/editor/version'
+require 'podspec_editor/version'
 require 'pathname'
 require 'ostruct'
 require 'json'
