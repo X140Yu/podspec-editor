@@ -1,37 +1,41 @@
 # podspec-editor
 
-💎 A ruby gem which analyzes the dependencies of any cocoapods projects. Subspecs are properly handled.
+💎 A ruby gem which can edit [podspec](https://guides.cocoapods.org/syntax/podspec.html).
 
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'podspec-editor'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install podspec-editor
+🤣 Will be added later
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'podspec_editor'
 
-## Development
+# create an editor
+editor = PodspecEditor::Editor.new(spec_path: 'path/to/spec/')
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+# read value from editor
+editor.spec.name
+editor.spec.key_not_exist
+editor.spec.subspecs[0].name
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+# remove value from editor
+editor.spec.name = nil
+editor.spec.key_not_exist = nil
+editor.spec.subspecs[0].source_files = nil
 
-## Contributing
+# update value from editor
+# update non-exist key will add this k-v pair to the spec
+editor.spec.name = 'abc'
+editor.spec.subspecs[0].name = 'cde'
+editor.spec.subspecs[0].source_files = new_source_files = ['A.h']
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/podspec-editor.
+# get current json content
+editor.current_json_content
+```
+
+See `spec/podspec/editor_spec.rb` for more usage examples.
 
 ## License
 
