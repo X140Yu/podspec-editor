@@ -2,13 +2,14 @@
 
 [![Build Status](https://travis-ci.org/X140Yu/podspec-editor.svg?branch=master)](https://travis-ci.org/X140Yu/podspec-editor)
 [![Coverage Status](https://coveralls.io/repos/github/X140Yu/podspec-editor/badge.svg)](https://coveralls.io/github/X140Yu/podspec-editor)
+[![Gem Version](https://badge.fury.io/rb/podspec_editor.svg)](https://badge.fury.io/rb/podspec_editor)
 
 💎 A ruby gem which can edit [podspec](https://guides.cocoapods.org/syntax/podspec.html).
 
 
 ## Installation
 
-    $ gem install podspec_editor
+    $ gem install podspec_editor -v 0.4.0
 
 ## Usage
 
